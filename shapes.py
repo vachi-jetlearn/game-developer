@@ -12,8 +12,8 @@ def draw():
         g=random.randint(0,255)
         rec=Rect((250,250),(x,y))
         rec.center=250,250
-        screen.draw.filled_rect(rec,(0,0,g))
-
+        screen.draw.filled_rect(rec,(r,b,255))
+        screen.draw.filled_circle((250,250),22,(r,g,255))
 
 
 
