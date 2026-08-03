@@ -1,0 +1,8 @@
+What is the capital of China?,Beijing,Shenzhen,Shanghai,London,1
+What is 5+6?,12,45,11,4,3
+What continent is India in?,Asia,Europe,Africa,South America,1
+What colour does blue and yellow make?,red,purple,orange,green,1
+Which of the following is a reptile?,elephant,snake,duck,dolphin,2
+Which is a water carrying tube in a plant?,chloroplast,membrane,xylem,phloem,3
+Which of these elements are part of water's chemical composition?,oxygen,nitrogen,helium,uranium,1
+What is the prime factor of 27?,1,9,27,3,4
