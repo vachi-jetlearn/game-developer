@@ -6,11 +6,15 @@ HEIGHT=800
 
 game_over=False
 
+
 #variables
 
 time1=15
 
+points=0
+
 list=[]
+
 path=("/Users/vachigupta/coding/python game developer/questions.txt")
 
 def readq():
@@ -23,12 +27,16 @@ def readq():
 
 def seperate():
    global questans, game_over
-   random.shuffle(list)
-   question=list.pop(0)
-   questans=question.split(",")
-   print(questans)
    if len(list)==0:
-      game_over=True
+         game_over=True
+
+   else:
+      random.shuffle(list)
+      question=list.pop(0)
+      questans=question.split(",")
+      print(questans)
+      
+   
       
       
    
@@ -77,6 +85,11 @@ def draw():
     screen.draw.textbox((questans[3]),answer3,color="white",)
     screen.draw.textbox((questans[4]),answer4,color="white",)
 
+    if game_over==True:
+        screen.draw.filled_rect(skip,(255,255,255))
+        screen.draw.textbox(("Total points:"+str(points)),skip,color="black",shadow=(0.5,0.2), scolor="pink")
+
+
 def update():
     global time1
     moving.x+=4
@@ -85,18 +98,77 @@ def update():
 
 
 def timee():
+    global questans, game_over
     global time1
     if time1>0:
      time1=time1-1
-    print(time1)
+    if time1==0:
+       game_over=True
+       questans=["Game Over!","-","-","-","-"]
+   
+   
 
 def on_mouse_down(pos):
-   global questans
+   global questans, points,game_over
    if skip.collidepoint(pos):
       seperate()
       if game_over==True:
          questans=["Game Over!","-","-","-","-"]
-         
+   if answer1.collidepoint(pos):
+      print("you clicked answer 1")
+      if int(questans[5])==1:
+         print("correct")
+         points=points+1
+         print(points)
+         seperate()
+      else:
+         seperate()
+
+   elif answer2.collidepoint(pos):
+         print("you clicked answer 2")
+         if int(questans[5])==2:
+            print("correct")
+            
+            points=points+1
+            print(points)
+            seperate()
+         else:
+            seperate()
+
+   elif answer3.collidepoint(pos):
+            print("you clicked answer 3")
+            if int(questans[5])==3:
+               print("correct")
+               points=points+1
+               print(points)
+               seperate()
+            else:
+               seperate()
+
+   elif answer4.collidepoint(pos):
+            print("you clicked answer 4")
+            if int(questans[5])==4:
+               print("correct")
+               points=points+1
+               print(points)
+               seperate()
+            else:
+               seperate()
+
+            if game_over==True:
+             questans=["Game Over!","-","-","-","-","-"]
+
+
+if time1==0:
+       game_over=True
+if game_over==True:
+            questans=["Game Over!","-","-","-","-","-"]
+            
+
+   
+
+
+   
       
 
 clock.schedule_interval(timee,1)
